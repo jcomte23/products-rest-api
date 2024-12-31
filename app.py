@@ -4,7 +4,7 @@ from database import products
 app = Flask(__name__)
 
 @app.route("/products")
-def getProducts():
+def get_products():
     return jsonify({
         "status":"success",
         "message": "Request processed successfully",
@@ -13,9 +13,9 @@ def getProducts():
     }), 200
     
     
-@app.route("/products/<int:id>")
-def getProductById(id):
-    product_found = [product for product in products if product["id"] == id]
+@app.route("/products/<int:product_id>")
+def get_product_by_id(product_id):
+    product_found = [product for product in products if product["id"] == product_id]
     
     if len(product_found) > 0:
         return jsonify({
@@ -32,7 +32,7 @@ def getProductById(id):
         }), 404
         
 @app.route("/products/<string:keyword>")
-def searchProductByName(keyword):
+def search_product_by_name(keyword):
     products_found = [product for product in products if product["name"] == keyword]
     
     if len(products_found) > 0:
