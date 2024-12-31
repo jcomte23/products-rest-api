@@ -42,5 +42,5 @@ pip install -r requirements.txt
 
 ### 5. Run the API:
 ```bash
-pip install -r requirements.txt
+python app.py
 ```
